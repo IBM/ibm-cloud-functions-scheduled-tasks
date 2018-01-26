@@ -9,7 +9,7 @@ This example shows how to create an action that runs when invoked by a cron-styl
 
 1. [Define and test the action](#1-define-and-test-the-action)
 2. [Create create the cron-style trigger](#2-create-create-the-cron-style-trigger)
-3. [Map the trigger to the action](#2-map-the-trigger-to-the-action)
+3. [Map the trigger to the action](#3-map-the-trigger-to-the-action)
 4. [Clean up](#4-clean-up)
 
 # 1. Define and test the action
