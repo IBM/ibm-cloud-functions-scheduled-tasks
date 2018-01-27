@@ -50,7 +50,7 @@ Then invoke it manually. This will echo the resulting JSON message to the curren
 wsk action invoke --blocking handler
 ```
 
-# 2. Create create the cron-style trigger
+# 2. Create the cron-style trigger
 Triggers can be explicitly fired by a user or fired on behalf of a user by an external event source, such as an alarm. This trigger uses the built-in alarm package feed to fire events every 20 seconds. This is specified through cron syntax in the `cron` parameter. The `maxTriggers` parameter ensures that it only fires for five minutes (15 times), rather than indefinitely.
 
 Create an `every-20-seconds` with the following command:
