@@ -5,7 +5,7 @@ Set up scheduled tasks, like a cron job or batch job, with IBM Cloud Functions p
 
 If you're not familiar with the OpenWhisk programming model [try the action, trigger, and rule sample first](https://github.com/IBM/openwhisk-action-trigger-rule). [You'll need a Bluemix account and the latest OpenWhisk command line tool](https://github.com/IBM/openwhisk-action-trigger-rule/blob/master/docs/OPENWHISK.md).
 
-This example shows how to create an action that runs when invoked by a cron-style trigger.
+This example shows how to create an action that runs when invoked by a cron-style trigger. You can learn about other types of alarm triggers in the [Cloud Functions documentation](https://console.bluemix.net/docs/openwhisk/openwhisk_alarms.html#openwhisk_catalog_alarm).
 
 1. [Define and test the action](#1-define-and-test-the-action)
 2. [Create create the cron-style trigger](#2-create-create-the-cron-style-trigger)
@@ -51,7 +51,7 @@ wsk action invoke --blocking handler
 ```
 
 # 2. Create the cron-style trigger
-Triggers can be explicitly fired by a user or fired on behalf of a user by an external event source, such as an alarm. This trigger uses the built-in alarm package feed to fire events every 20 seconds. This is specified through cron syntax in the `cron` parameter. The `maxTriggers` parameter ensures that it only fires for five minutes (15 times), rather than indefinitely.
+Triggers can be explicitly fired by a user or fired on behalf of a user by an external event source, such as an alarm. This trigger uses the built-in alarm package feed to fire events every 20 seconds. This is specified through cron syntax in the `cron` parameter. 
 
 Create an `every-20-seconds` with the following command:
 
@@ -59,7 +59,6 @@ Create an `every-20-seconds` with the following command:
 wsk trigger create every-20-seconds \
   --feed  /whisk.system/alarms/alarm \
   --param cron '*/20 * * * * *' \
-  --param maxTriggers 15
 ```
 
 Once it's created, you will see activations firing in the log, but it's not yet mapped to the `handler` action so it's not very exciting.
